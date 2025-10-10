@@ -1,0 +1,18 @@
+# Use official Python 3.10.12 image
+FROM python:3.10.12-slim
+
+# Set work directory
+WORKDIR /app
+
+# Install dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy project files
+COPY . .
+
+# Expose port (Render needs this)
+EXPOSE 8000
+
+# Start your app (adjust for Flask / FastAPI / Django etc.)
+CMD ["python", "appfinal.py"]
