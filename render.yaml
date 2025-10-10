@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: esp-service
+    env: docker
+    buildCommand: docker build -t esp .
+    startCommand: docker run -p $PORT:8000 esp
+    envVars:
+      - key: PORT
+        value: "8000"
